@@ -6,12 +6,11 @@ pipeline {
 
   }
   stages {
-    stage('deploy') {
+    stage('test') {
       steps {
-        sh ''' sh \'\'\'
-            oc project react-intro2
-            oc start-build greeting-service --follow --wait
-    \'\'\''''
+        sh '''
+  npm ci
+  npm test'''
       }
     }
 
