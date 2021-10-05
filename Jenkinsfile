@@ -14,6 +14,13 @@ pipeline {
       }
     }
 
+    stage('deploy ') {
+      steps {
+        sh '''oc project react-intro2
+oc start-build greeting-service --follow --wait'''
+      }
+    }
+
   }
   post {
     always {
