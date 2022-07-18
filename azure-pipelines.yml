@@ -39,7 +39,8 @@ stages:
           $(tag)
     - task: CopyFiles@2
       inputs:
-        Contents: '$(Build.SourcesDirectory)/chart/*'
+        sourceFolder: '$(Build.SourcesDirectory)/chart/'
+        Contents: '**'
         TargetFolder: '$(build.artifactstagingdirectory)'
     - task: PublishBuildArtifacts@1
       inputs:
