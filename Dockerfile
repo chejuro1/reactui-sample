@@ -1,7 +1,7 @@
 FROM quay.io/upslopeio/node-alpine as build
 WORKDIR /app
 COPY . .
-RUN npm install -g npm@8.14.0
+RUN npm install 
 RUN npm run build
 
 FROM quay.io/upslopeio/nginx-unprivileged
