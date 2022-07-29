@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: reactui
-        image: "#{imageRepository}#:#{tag}#"
+        image: "containerregistrydevchejuro.azurecr.io/chejuroreactuisample:648"
         ports:
         - containerPort: 8080
