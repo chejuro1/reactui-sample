@@ -12,7 +12,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '2dfee860-8b23-4c7e-8384-1b91d4a61d1b'
   imageRepository: 'chejuroreactuisample'
-  containerRegistry: 'containerregistryc.azurecr.io'
+  containerRegistry: 'containerregistrydevchejuro.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
