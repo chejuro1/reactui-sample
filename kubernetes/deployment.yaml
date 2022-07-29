@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: reactui
-        image: $(imagename)
+        image: $(imageRepository)
         ports:
         - containerPort: 8080
