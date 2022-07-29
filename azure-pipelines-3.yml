@@ -39,7 +39,7 @@ stages:
           $(tag)
     - task: CopyFiles@2
       inputs:
-        sourceFolder: '$(Build.SourcesDirectory)/kubernetes/'
+        sourceFolder: '$(Build.SourcesDirectory)/chart/'
         Contents: '**'
         TargetFolder: '$(build.artifactstagingdirectory)'
     - task: PublishBuildArtifacts@1
