@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactui-svc
+spec:
+  selector:
+    app.kubernetes.io/name: reactui
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
