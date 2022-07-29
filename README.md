@@ -68,3 +68,44 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### create service account for azure devops to kubernetes
+Create service account
+kubectl create sa <<service account name>>
+
+Create a Role
+piVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: role-for-serviceaccount
+  namespace: default
+rules:
+- apiGroups: ["*","apps","extensions"]
+  resources: ["*"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  
+  Create Rolebinding
+  apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rolebinding-for-serviceaccount
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: connect
+  namespace: default
+roleRef:
+  kind: Role
+  name: connect
+  apiGroup: rbac.authorization.k8s.io
+  
+  Create Role and Robinding
+  Kubectl apply -f (Role.yaml ,Robinding.yaml)
+  
+  Get get sercret in json
+  Kubectl get secret <<secret-name>>  -n <<namespace>> -o json
+  
+ Get the cluster url
+ kubectl config view --minify -o 'jsonpath={.clusters[0].cluster.server}'
